@@ -1,23 +1,35 @@
 
 <!DOCTYPE html>
-<html>
+<html lang="en">
 	<head>
 		<meta charset="UTF-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 		<title>EQTrainer</title>
 		<link rel="stylesheet" href="/stylesheets/styles.css"/>
 		<script type="text/javascript" src="/javascripts/jquery-2.1.4.min.js"></script>
 		<script type="text/javascript" src="/javascripts/common.js"></script>
 	</head>
 	<body>
-		<section class="playground-wrapper">
-			<section class="spectrum">
-				<canvas width="500" height="250"></canvas>
+		<div class="container">
+			<h1>EQTrainer <sup class="small">Alpha</sup></h1>
+			<div class="clear-fix">
+				<div class="btn-group" role="swicher">
+					<button class="btn btn-primary">New game</button>
+					<button class="btn btn-default">Quit</button>
+				</div>
+				<p class="lead pull-right"><span class="glyphicon glyphicon-star"></span>1200</p>
+			</div>
+			<section class="playground-wrapper">
+				<section class="spectrum">
+					<canvas width="500" height="250"></canvas>
+				</section>
+				<section class="swicher">
+					<div class="btn-group btn-group-lg" role="swicher">
+						<button class="btn btn-primary">EQ</button>
+						<button class="btn btn-primary">Flat</button>
+					</div>
+				</section>
 			</section>
-			<section class="swicher">
-				<button class="btn btn-default">EQ</button>
-				<button class="btn btn-default">Flat</button>
-			</section>
-		</section>
+		</div>
 	</body>
 </html>

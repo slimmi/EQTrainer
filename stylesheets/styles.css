@@ -5812,16 +5812,15 @@ button.close {
 html, body {
   height: 100%; }
 
-/*! Playground */
 .playground-wrapper {
-  padding: 50px; }
+  margin: 20px 0; }
   .playground-wrapper .spectrum {
     border: 1px solid #ccc;
     border-radius: 2px;
     width: 100%;
     height: 200px; }
   .playground-wrapper .swicher {
-    padding: 10px;
+    padding: 20px;
     width: 100%;
     text-align: center; }
 
