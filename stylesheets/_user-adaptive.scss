@@ -2,10 +2,102 @@
 // Adaptive
 // --------------------------------------------------
 
-/*@media screen and (max-width: $screen-lg) {
-	
+@media (max-width: $screen-md-min) {
+	.playground-wrapper {
+		.spectrum {
+			.grid {
+				.s10k-20k {
+					.s10k-15k {
+						border-right: 0;
+						width: 55%;
+					}
+
+					.s15k-20k {
+						display: none;
+					}
+				}
+			}
+		}
+	}
 }
 
-@media screen and (max-width: $screen-md) {
-	
-}*/
+@media (max-width: $screen-xs-min) {
+	.playground-wrapper {
+		.spectrum {
+			.cheering-message {
+				font-size: 35px;
+			}
+
+			.grid {
+				.s20-100 {
+					width: 10%;
+
+					.s20-50 {
+						display: none;
+					}
+
+					.s50-100 {
+						display: none;
+					}
+				}
+
+				.s1k-10k {
+					.s1k-2k {
+						.s1k-1500 {
+							display: none;
+						}
+
+						.s1500-2k {
+							display: none;
+						}
+					}
+
+					.s2k-5k {
+						width: 45%;
+
+						@include spectrum-hz("2k");
+
+						.s2k-3k {
+							width: 45%;
+						}
+
+						.s3k-4k {
+							width: 30%;
+
+							@include spectrum-hz("3k");
+						}
+
+						.s4k-5k {
+							border-right: 0;
+							width: 25%;
+
+							@include spectrum-hz("4k");
+						}
+					}
+
+					.s5k-10k {
+						.s5k-8k {
+							display: none;
+						}
+
+						.s8k-10k {
+							display: none;
+						}
+					}
+				}
+
+				.s10k-20k {
+					width: 9%;
+
+					.s10k-15k {
+						display: none;
+					}
+
+					.s15k-20k {
+						display: none;
+					}
+				}
+			}
+		}
+	}
+}

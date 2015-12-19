@@ -2,14 +2,243 @@
 // Playground component
 // --------------------------------------------------
 
+// Creating numbers for the spectrum 
+@mixin spectrum-hz($content) {
+	&::after {
+		position: absolute;
+		left: 2px;
+		bottom: 0;
+		content: $content; // Minimum Hz
+		color: $spectrum-border-color;
+		font-size: 10px;
+	}
+}
+
 .playground-wrapper {
 	margin: 20px 0;
 
 	.spectrum {
-		border: 1px solid #ccc;
+		border: 1px solid $spectrum-border-color;
 		border-radius: 2px;
+		position: relative;
 		width: 100%;
 		height: 200px;
+		overflow: hidden;
+    	background: $spectrum-background-color;
+    	@include user-select(none);
+
+		.cheering-message {
+			position: absolute;
+			width: 100%;
+			height: 100%;
+			font-size: 70px;
+			text-align: center;
+			line-height: 200px;
+			z-index: 100;
+		}
+
+		.grid {
+    		position: absolute;
+			width: 100%;
+    		height: 100%;
+    		z-index: 10;
+
+			.hz {
+				border-right: 1px solid $spectrum-border-color;
+				position: relative;
+				float: left;
+				width: 30%;
+				height: 100%;
+			}
+
+			.s20-100 {
+				width: 15%;
+
+				@include spectrum-hz("20");
+
+				.s20-50 {
+					width: 37.5%;
+				}
+
+				.s50-100 {
+					border-right: 0;
+					width: 62.5%;
+
+					@include spectrum-hz("50");
+				}
+			}
+
+			.s100-1k {
+				width: 45%;
+
+				@include spectrum-hz("100");
+
+				.s100-600 {
+					width: 65%;
+
+					.s100-250 {
+						width: 35%;
+					}
+
+					.s250-400 {
+						width: 32.5%;
+
+						@include spectrum-hz("250");
+					}
+
+					.s400-600 {
+						border-right: 0;
+						width: 32.5%;
+
+						@include spectrum-hz("400");
+					}
+				}
+
+				.s600-1k {
+					border-right: 0;
+					width: 35%;
+
+					@include spectrum-hz("600");
+
+					.s600-800 {
+						width: 55%;
+					}
+
+					.s800-1k {
+						border-right: 0;
+						width: 45%;
+
+						@include spectrum-hz("800");
+					}
+				}
+			}
+
+			.s1k-10k {
+				width: 36%;
+
+				@include spectrum-hz("1k");
+
+				.s1k-2k {
+					width: 40%;
+
+					.s1k-1500 {
+						width: 50%;
+					}
+
+					.s1500-2k {
+						border-right: 0;
+						width: 50%;
+
+						@include spectrum-hz("1.5k");
+					}
+				}
+
+				.s2k-5k {
+					width: 45%;
+
+					@include spectrum-hz("2k");
+
+					.s2k-3k {
+						width: 45%;
+					}
+
+					.s3k-4k {
+						width: 30%;
+
+						@include spectrum-hz("3k");
+					}
+
+					.s4k-5k {
+						border-right: 0;
+						width: 25%;
+
+						@include spectrum-hz("4k");
+					}
+				}
+
+				.s5k-10k {
+					border-right: 0;
+					width: 15%;
+
+					@include spectrum-hz("5k");
+
+					.s5k-8k {
+						width: 50%;
+					}
+
+					.s8k-10k {
+						border-right: 0;
+						width: 50%;
+
+						@include spectrum-hz("8k");
+					}
+				}
+			}
+
+			.s10k-20k {
+				border-right: 0;
+				width: 4%;
+
+				@include spectrum-hz("10k");
+
+				.s10k-15k {
+					width: 55%;
+				}
+
+				.s15k-20k {
+					border-right: 0;
+					width: 45%;
+
+					@include spectrum-hz("15k");
+				}
+			}
+		}
+
+		.selector {
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: 40%;
+			height: 100%;
+			background: $spectrum-selector-color;
+			z-index: 9;
+
+			.chosen-frequency {
+				left: calc(50% - 1px);
+				background: #1a4367;
+				
+				.fq {
+					bottom: calc((50% - 16px / 2) - 16px);
+					color: #1a4367;
+				}
+			}
+		}
+
+		.chosen-frequency {
+			position: absolute;
+			top: 0;
+			left: 20%;
+			width: 2px;
+			height: 100%;
+			background: #c52727;
+			z-index: 11;
+
+			.fq {
+				position: absolute;
+				left: 8px;
+				bottom: calc(50% - 16px / 2);
+				width: 45px;
+				height: 16px;
+				color: #c52727;
+				font-size: 16px;
+				line-height: 16px;
+
+				&.left {
+					left: -53px;
+					text-align: right;
+				}
+			}
+		}
 	}
 
 	.swicher {

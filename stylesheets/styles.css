@@ -5815,21 +5815,305 @@ html, body {
 .playground-wrapper {
   margin: 20px 0; }
   .playground-wrapper .spectrum {
-    border: 1px solid #ccc;
+    border: 1px solid #294054;
     border-radius: 2px;
+    position: relative;
     width: 100%;
-    height: 200px; }
+    height: 200px;
+    overflow: hidden;
+    background: #ddd;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none; }
+    .playground-wrapper .spectrum .cheering-message {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      font-size: 70px;
+      text-align: center;
+      line-height: 200px;
+      z-index: 100; }
+    .playground-wrapper .spectrum .grid {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      z-index: 10; }
+      .playground-wrapper .spectrum .grid .hz {
+        border-right: 1px solid #294054;
+        position: relative;
+        float: left;
+        width: 30%;
+        height: 100%; }
+      .playground-wrapper .spectrum .grid .s20-100 {
+        width: 15%; }
+        .playground-wrapper .spectrum .grid .s20-100::after {
+          position: absolute;
+          left: 2px;
+          bottom: 0;
+          content: "20";
+          color: #294054;
+          font-size: 10px; }
+        .playground-wrapper .spectrum .grid .s20-100 .s20-50 {
+          width: 37.5%; }
+        .playground-wrapper .spectrum .grid .s20-100 .s50-100 {
+          border-right: 0;
+          width: 62.5%; }
+          .playground-wrapper .spectrum .grid .s20-100 .s50-100::after {
+            position: absolute;
+            left: 2px;
+            bottom: 0;
+            content: "50";
+            color: #294054;
+            font-size: 10px; }
+      .playground-wrapper .spectrum .grid .s100-1k {
+        width: 45%; }
+        .playground-wrapper .spectrum .grid .s100-1k::after {
+          position: absolute;
+          left: 2px;
+          bottom: 0;
+          content: "100";
+          color: #294054;
+          font-size: 10px; }
+        .playground-wrapper .spectrum .grid .s100-1k .s100-600 {
+          width: 65%; }
+          .playground-wrapper .spectrum .grid .s100-1k .s100-600 .s100-250 {
+            width: 35%; }
+          .playground-wrapper .spectrum .grid .s100-1k .s100-600 .s250-400 {
+            width: 32.5%; }
+            .playground-wrapper .spectrum .grid .s100-1k .s100-600 .s250-400::after {
+              position: absolute;
+              left: 2px;
+              bottom: 0;
+              content: "250";
+              color: #294054;
+              font-size: 10px; }
+          .playground-wrapper .spectrum .grid .s100-1k .s100-600 .s400-600 {
+            border-right: 0;
+            width: 32.5%; }
+            .playground-wrapper .spectrum .grid .s100-1k .s100-600 .s400-600::after {
+              position: absolute;
+              left: 2px;
+              bottom: 0;
+              content: "400";
+              color: #294054;
+              font-size: 10px; }
+        .playground-wrapper .spectrum .grid .s100-1k .s600-1k {
+          border-right: 0;
+          width: 35%; }
+          .playground-wrapper .spectrum .grid .s100-1k .s600-1k::after {
+            position: absolute;
+            left: 2px;
+            bottom: 0;
+            content: "600";
+            color: #294054;
+            font-size: 10px; }
+          .playground-wrapper .spectrum .grid .s100-1k .s600-1k .s600-800 {
+            width: 55%; }
+          .playground-wrapper .spectrum .grid .s100-1k .s600-1k .s800-1k {
+            border-right: 0;
+            width: 45%; }
+            .playground-wrapper .spectrum .grid .s100-1k .s600-1k .s800-1k::after {
+              position: absolute;
+              left: 2px;
+              bottom: 0;
+              content: "800";
+              color: #294054;
+              font-size: 10px; }
+      .playground-wrapper .spectrum .grid .s1k-10k {
+        width: 36%; }
+        .playground-wrapper .spectrum .grid .s1k-10k::after {
+          position: absolute;
+          left: 2px;
+          bottom: 0;
+          content: "1k";
+          color: #294054;
+          font-size: 10px; }
+        .playground-wrapper .spectrum .grid .s1k-10k .s1k-2k {
+          width: 40%; }
+          .playground-wrapper .spectrum .grid .s1k-10k .s1k-2k .s1k-1500 {
+            width: 50%; }
+          .playground-wrapper .spectrum .grid .s1k-10k .s1k-2k .s1500-2k {
+            border-right: 0;
+            width: 50%; }
+            .playground-wrapper .spectrum .grid .s1k-10k .s1k-2k .s1500-2k::after {
+              position: absolute;
+              left: 2px;
+              bottom: 0;
+              content: "1.5k";
+              color: #294054;
+              font-size: 10px; }
+        .playground-wrapper .spectrum .grid .s1k-10k .s2k-5k {
+          width: 45%; }
+          .playground-wrapper .spectrum .grid .s1k-10k .s2k-5k::after {
+            position: absolute;
+            left: 2px;
+            bottom: 0;
+            content: "2k";
+            color: #294054;
+            font-size: 10px; }
+          .playground-wrapper .spectrum .grid .s1k-10k .s2k-5k .s2k-3k {
+            width: 45%; }
+          .playground-wrapper .spectrum .grid .s1k-10k .s2k-5k .s3k-4k {
+            width: 30%; }
+            .playground-wrapper .spectrum .grid .s1k-10k .s2k-5k .s3k-4k::after {
+              position: absolute;
+              left: 2px;
+              bottom: 0;
+              content: "3k";
+              color: #294054;
+              font-size: 10px; }
+          .playground-wrapper .spectrum .grid .s1k-10k .s2k-5k .s4k-5k {
+            border-right: 0;
+            width: 25%; }
+            .playground-wrapper .spectrum .grid .s1k-10k .s2k-5k .s4k-5k::after {
+              position: absolute;
+              left: 2px;
+              bottom: 0;
+              content: "4k";
+              color: #294054;
+              font-size: 10px; }
+        .playground-wrapper .spectrum .grid .s1k-10k .s5k-10k {
+          border-right: 0;
+          width: 15%; }
+          .playground-wrapper .spectrum .grid .s1k-10k .s5k-10k::after {
+            position: absolute;
+            left: 2px;
+            bottom: 0;
+            content: "5k";
+            color: #294054;
+            font-size: 10px; }
+          .playground-wrapper .spectrum .grid .s1k-10k .s5k-10k .s5k-8k {
+            width: 50%; }
+          .playground-wrapper .spectrum .grid .s1k-10k .s5k-10k .s8k-10k {
+            border-right: 0;
+            width: 50%; }
+            .playground-wrapper .spectrum .grid .s1k-10k .s5k-10k .s8k-10k::after {
+              position: absolute;
+              left: 2px;
+              bottom: 0;
+              content: "8k";
+              color: #294054;
+              font-size: 10px; }
+      .playground-wrapper .spectrum .grid .s10k-20k {
+        border-right: 0;
+        width: 4%; }
+        .playground-wrapper .spectrum .grid .s10k-20k::after {
+          position: absolute;
+          left: 2px;
+          bottom: 0;
+          content: "10k";
+          color: #294054;
+          font-size: 10px; }
+        .playground-wrapper .spectrum .grid .s10k-20k .s10k-15k {
+          width: 55%; }
+        .playground-wrapper .spectrum .grid .s10k-20k .s15k-20k {
+          border-right: 0;
+          width: 45%; }
+          .playground-wrapper .spectrum .grid .s10k-20k .s15k-20k::after {
+            position: absolute;
+            left: 2px;
+            bottom: 0;
+            content: "15k";
+            color: #294054;
+            font-size: 10px; }
+    .playground-wrapper .spectrum .selector {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 40%;
+      height: 100%;
+      background: #337ab7;
+      z-index: 9; }
+      .playground-wrapper .spectrum .selector .chosen-frequency {
+        left: calc(50% - 1px);
+        background: #1a4367; }
+        .playground-wrapper .spectrum .selector .chosen-frequency .fq {
+          bottom: calc((50% - 16px / 2) - 16px);
+          color: #1a4367; }
+    .playground-wrapper .spectrum .chosen-frequency {
+      position: absolute;
+      top: 0;
+      left: 20%;
+      width: 2px;
+      height: 100%;
+      background: #c52727;
+      z-index: 11; }
+      .playground-wrapper .spectrum .chosen-frequency .fq {
+        position: absolute;
+        left: 8px;
+        bottom: calc(50% - 16px / 2);
+        width: 45px;
+        height: 16px;
+        color: #c52727;
+        font-size: 16px;
+        line-height: 16px; }
+        .playground-wrapper .spectrum .chosen-frequency .fq.left {
+          left: -53px;
+          text-align: right; }
   .playground-wrapper .swicher {
     padding: 20px;
     width: 100%;
     text-align: center; }
 
-/*@media screen and (max-width: $screen-lg) {
-	
-}
-
-@media screen and (max-width: $screen-md) {
-	
-}*/
+@media (max-width: 992px) {
+  .playground-wrapper .spectrum .grid .s10k-20k .s10k-15k {
+    border-right: 0;
+    width: 55%; }
+  .playground-wrapper .spectrum .grid .s10k-20k .s15k-20k {
+    display: none; } }
+@media (max-width: 480px) {
+  .playground-wrapper .spectrum .cheering-message {
+    font-size: 35px; }
+  .playground-wrapper .spectrum .grid .s20-100 {
+    width: 10%; }
+    .playground-wrapper .spectrum .grid .s20-100 .s20-50 {
+      display: none; }
+    .playground-wrapper .spectrum .grid .s20-100 .s50-100 {
+      display: none; }
+  .playground-wrapper .spectrum .grid .s1k-10k .s1k-2k .s1k-1500 {
+    display: none; }
+  .playground-wrapper .spectrum .grid .s1k-10k .s1k-2k .s1500-2k {
+    display: none; }
+  .playground-wrapper .spectrum .grid .s1k-10k .s2k-5k {
+    width: 45%; }
+    .playground-wrapper .spectrum .grid .s1k-10k .s2k-5k::after {
+      position: absolute;
+      left: 2px;
+      bottom: 0;
+      content: "2k";
+      color: #294054;
+      font-size: 10px; }
+    .playground-wrapper .spectrum .grid .s1k-10k .s2k-5k .s2k-3k {
+      width: 45%; }
+    .playground-wrapper .spectrum .grid .s1k-10k .s2k-5k .s3k-4k {
+      width: 30%; }
+      .playground-wrapper .spectrum .grid .s1k-10k .s2k-5k .s3k-4k::after {
+        position: absolute;
+        left: 2px;
+        bottom: 0;
+        content: "3k";
+        color: #294054;
+        font-size: 10px; }
+    .playground-wrapper .spectrum .grid .s1k-10k .s2k-5k .s4k-5k {
+      border-right: 0;
+      width: 25%; }
+      .playground-wrapper .spectrum .grid .s1k-10k .s2k-5k .s4k-5k::after {
+        position: absolute;
+        left: 2px;
+        bottom: 0;
+        content: "4k";
+        color: #294054;
+        font-size: 10px; }
+  .playground-wrapper .spectrum .grid .s1k-10k .s5k-10k .s5k-8k {
+    display: none; }
+  .playground-wrapper .spectrum .grid .s1k-10k .s5k-10k .s8k-10k {
+    display: none; }
+  .playground-wrapper .spectrum .grid .s10k-20k {
+    width: 9%; }
+    .playground-wrapper .spectrum .grid .s10k-20k .s10k-15k {
+      display: none; }
+    .playground-wrapper .spectrum .grid .s10k-20k .s15k-20k {
+      display: none; } }
 
 /*# sourceMappingURL=styles.css.map */

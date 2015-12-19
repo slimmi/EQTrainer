@@ -5,28 +5,100 @@
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 		<title>EQTrainer</title>
-		<link rel="stylesheet" href="/stylesheets/styles.css"/>
+		<link rel="stylesheet" href="/stylesheets/styles.min.css"/>
 		<script type="text/javascript" src="/javascripts/jquery-2.1.4.min.js"></script>
+		<script type="text/javascript" src="/javascripts/settings.js"></script>
 		<script type="text/javascript" src="/javascripts/common.js"></script>
 	</head>
 	<body>
 		<div class="container">
 			<h1>EQTrainer <sup class="small">Alpha</sup></h1>
-			<div class="clear-fix">
-				<div class="btn-group" role="swicher">
-					<button class="btn btn-primary">New game</button>
-					<button class="btn btn-default">Quit</button>
+			<section class="loader-wrapper text-center">
+				<h1>Loading...</h1>
+			</section>
+			<section class="menu-wrapper text-center hide">
+				<p class="lead">Welcome! Let's see what you can...</p>
+				<div class="btn-group btn-group-lg">
+					<button class="btn btn-primary">Start Game</button>
+					<a class="btn btn-default" href="http://eq.slimmi.us/eq/reddit/" target="_blank">Send Feedback</a>
 				</div>
-				<p class="lead pull-right"><span class="glyphicon glyphicon-star"></span>1200</p>
-			</div>
-			<section class="playground-wrapper">
+			</section>
+			<section class="game-over-wrapper text-center hide">
+				<h1>Game Over</h1>
+				<p class="lead">Your score is <span class="score">12000</span></p>
+				<p class="small">Thanks for testing! Please, leave your feedback.</p>
+				<div class="btn-group btn-group-lg">
+					<button class="btn btn-primary">Play Again</button>
+					<a class="btn btn-default" href="http://eq.slimmi.us/eq/reddit/" target="_blank">Send Feedback</a>
+				</div>
+			</section>
+			<section class="game-won-wrapper text-center hide">
+				<h1>You Won</h1>
+				<p class="lead">Your score is <span class="score">12000</span></p>
+				<p class="small">Thanks for testing! Please, leave your feedback.</p>
+				<div class="btn-group btn-group-lg">
+					<button class="btn btn-primary">Play Again</button>
+					<a class="btn btn-default" href="http://eq.slimmi.us/eq/reddit/" target="_blank">Send Feedback</a>
+				</div>
+			</section>
+			<section class="playground-wrapper hide">
+				<div class="clear-fix">
+					<div class="btn-group game-control pull-right">
+						<button class="btn btn-default" data-game="quit">Quit</button>
+					</div>
+					<p class="lead"><span class="glyphicon glyphicon-heart"></span> <span class="game-lives">3</span> | <span class="glyphicon glyphicon-star"></span> <span class="game-score">0</span></p>
+				</div>
 				<section class="spectrum">
-					<canvas width="500" height="250"></canvas>
+					<div class="cheering-message hide">Bravo!</div>
+					<div class="chosen-frequency hide">
+						<div class="fq"></div>
+					</div>
+					<div class="grid">
+						<div class="s20-100 hz" data-hz-min="20" data-hz-max="100">
+							<div class="s20-50 hz" data-hz-min="20" data-hz-max="50"></div>
+							<div class="s50-100 hz" data-hz-min="50" data-hz-max="100"></div>
+						</div>
+						<div class="s100-1k hz" data-hz-min="100" data-hz-max="1000">
+							<div class="s100-600 hz" data-hz-min="100" data-hz-max="600">
+								<div class="s100-250 hz" data-hz-min="100" data-hz-max="250"></div>
+								<div class="s250-400 hz" data-hz-min="250" data-hz-max="400"></div>
+								<div class="s400-600 hz" data-hz-min="400" data-hz-max="600"></div>
+							</div>
+							<div class="s600-1k hz" data-hz-min="600" data-hz-max="1000">
+								<div class="s600-800 hz" data-hz-min="600" data-hz-max="800"></div>
+								<div class="s800-1k hz" data-hz-min="800" data-hz-max="1000"></div>
+							</div>
+						</div>
+						<div class="s1k-10k hz" data-hz-min="1000" data-hz-max="10000">
+							<div class="s1k-2k hz" data-hz-min="1000" data-hz-max="2000">
+								<div class="s1k-1500 hz" data-hz-min="1000" data-hz-max="1500"></div>
+								<div class="s1500-2k hz" data-hz-min="1500" data-hz-max="2000"></div>
+							</div>
+							<div class="s2k-5k hz" data-hz-min="2000" data-hz-max="5000">
+								<div class="s2k-3k hz" data-hz-min="2000" data-hz-max="3000"></div>
+								<div class="s3k-4k hz" data-hz-min="3000" data-hz-max="4000"></div>
+								<div class="s4k-5k hz" data-hz-min="4000" data-hz-max="5000"></div>
+							</div>
+							<div class="s5k-10k hz" data-hz-min="5000" data-hz-max="10000">
+								<div class="s5k-8k hz" data-hz-min="5000" data-hz-max="8000"></div>
+								<div class="s8k-10k hz" data-hz-min="8000" data-hz-max="10000"></div>
+							</div>
+						</div>
+						<div class="s10k-20k hz" data-hz-min="1000" data-hz-max="20000">
+							<div class="s10k-15k hz" data-hz-min="10000" data-hz-max="15000"></div>
+							<div class="s15k-20k hz" data-hz-min="15000" data-hz-max="20000"></div>
+						</div>
+					</div>
+					<div class="selector">
+						<div class="chosen-frequency">
+							<div class="fq hide"></div>
+						</div>
+					</div>
 				</section>
 				<section class="swicher">
 					<div class="btn-group btn-group-lg" role="swicher">
-						<button class="btn btn-primary">EQ</button>
-						<button class="btn btn-primary">Flat</button>
+						<button class="btn btn-primary" data-type="eq">EQ</button>
+						<button class="btn btn-primary" data-type="flat">Flat</button>
 					</div>
 				</section>
 			</section>
