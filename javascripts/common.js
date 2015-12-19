@@ -164,6 +164,7 @@
 				return;
 			}
 
+			this.isPlaying = false;
 			this.source.stop();
 		},
 
