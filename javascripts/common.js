@@ -568,8 +568,10 @@
 					self.nextRound();
 				}, this.TIMEOUT_BETWEEN_GAMES);
 			} else {
+				alert('Before this.lose();');
 				// Game is over
 				this.lose();
+				alert('After this.lose();');
 			}
 		},
 
