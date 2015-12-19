@@ -273,11 +273,6 @@
 
 /**
  * EQTrainer.
- *
- * TODO:
- *  • Reset everything on window.resize
- *  • Mobile support
- *  • Won message
  */
 +function ($) {
 	'use strict';
@@ -413,7 +408,10 @@
 					children = $(this).find('.hz'),
 					mouseLeft = event.pageX,
 					minHz, maxHz, element, elementLeft, HzInPx, chosenHz;
-				
+
+				// Add parent
+				children.push($(this));
+
 				children.each(function() {
 					element = $(this);
 
@@ -443,6 +441,8 @@
 
 						// Deinitialize
 						self.deinitSpectrum();
+
+						console.log(element);
 					}
 				});
 
@@ -598,7 +598,7 @@
 			maxHz = rightElement.data('hz-max');
 			elementLeft = rightElement.offset().left;
 
-			// How many Hz in a pixel
+			// How many pixels in a Hz
 			PxInHz = rightElement.width() / (maxHz - minHz);
 			leftPx = elementLeft - this.spectrumLeft + (this.rightFrequency - minHz) * PxInHz;
 
@@ -848,7 +848,7 @@
 						loseSection
 							.removeClass('hide')
 							.find('.score')
-							.text(score);;
+							.text(score);
 					});
 
 				loader.addClass('hide');

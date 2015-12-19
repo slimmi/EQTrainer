@@ -6058,8 +6058,7 @@ html, body {
 
 @media (max-width: 992px) {
   .playground-wrapper .spectrum .grid .s10k-20k .s10k-15k {
-    border-right: 0;
-    width: 55%; }
+    display: none; }
   .playground-wrapper .spectrum .grid .s10k-20k .s15k-20k {
     display: none; } }
 @media (max-width: 480px) {
