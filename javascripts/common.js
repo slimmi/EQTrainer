@@ -346,7 +346,7 @@
 	};
 
 	EQGame.prototype = {
-		TIMEOUT_BETWEEN_GAMES: 1500,
+		TIMEOUT_BETWEEN_GAMES: 2000,
 
 		EQed: true,
 		lives: 0,
@@ -568,10 +568,10 @@
 					self.nextRound();
 				}, this.TIMEOUT_BETWEEN_GAMES);
 			} else {
-				alert('Before this.lose();');
-				// Game is over
-				this.lose();
-				alert('After this.lose();');
+				setTimeout(function () {
+					// Game is over
+					self.lose();
+				}, this.TIMEOUT_BETWEEN_GAMES);
 			}
 		},
 
@@ -732,19 +732,19 @@
 				case 3:
 				case 4:
 				case 5:
+				case 6:
 					frequency = this.randomNumber(120, 2000);
 					break;
 
 				// 2000 - 8000 Hz
-				case 6:
 				case 7:
 				case 8:
 				case 9:
+				case 10:
 					frequency = this.randomNumber(2000, 8000);
 					break;
 
 				// 8000 - 12000 Hz
-				case 10:
 				case 11:
 					frequency = this.randomNumber(8000, 12000);
 					break;
